@@ -41,7 +41,7 @@ class GeneralNewsScraper:
     def get_article_links(self, main_url, limit=5):
         print(f"[!] Mencari link berita di: {main_url}")
         
-        # Jurus paksa stop loading
+        # paksa stop loading
         try:
             self.driver.get(main_url)
         except:
@@ -80,7 +80,7 @@ class GeneralNewsScraper:
         return links[:limit]
 
     def scrape_single_article(self, url):
-        # Jurus paksa stop loading di halaman artikel
+        # paksa stop loading di halaman artikel
         try:
             self.driver.get(url)
         except:
@@ -94,22 +94,22 @@ class GeneralNewsScraper:
         except:
             title = self.driver.title 
 
-        # Ambil Tanggal (TEKS MENTAH SAJA, Nanti Rafi yang olah di processor.py)
+        # Ambil Tanggal (raw teks yang nanti diolah di processor.py)
         raw_date_str = "Tanggal tidak ditemukan"
         try:
-            # JURUS 1: Sadap Meta Data SEO (Ini yang dipakai Google, 99% Akurat!)
+            # plan 1: Sadap Meta Data SEO (Ini yang dipakai Google, 99% Akurat!)
             meta_tags = self.driver.find_elements(By.XPATH, "//meta[@property='article:published_time' or @name='pubdate' or @name='publishdate' or @itemprop='datePublished']")
             if meta_tags:
                 # Output meta tag biasanya ISO format: "2026-03-05T16:44:00+07:00"
                 raw_date_str = meta_tags[0].get_attribute('content')
             
-            # JURUS 2: Kalau ga ada meta tag, cari tag <time> standar
+            # plan 2: Kalau ga ada meta tag, cari tag <time> standar
             if raw_date_str == "Tanggal tidak ditemukan":
                 times = self.driver.find_elements(By.TAG_NAME, 'time')
                 if times:
                     raw_date_str = times[0].text
             
-            # JURUS 3: Deteksi Manual teks Indonesia (Cari yang ada WIB/WITA/WIT)
+            # plan 3: Deteksi Manual teks Indonesia (Cari yang ada WIB/WITA/WIT)
             if raw_date_str == "Tanggal tidak ditemukan":
                 zona_waktu = self.driver.find_elements(By.XPATH, "//*[contains(text(), 'WIB') or contains(text(), 'WITA') or contains(text(), 'WIT')]")
                 for el in zona_waktu:
@@ -134,7 +134,7 @@ class GeneralNewsScraper:
         if not content.strip():
             content = "Gagal mengekstrak teks. Website mungkin memblokir bot."
 
-        # KONTRAK DATA: Mengirim data ke Rafi (processor.py)
+        # KONTRAK DATA: Mengirim data ke processor.py
         return {
             'judul': title,
             'tanggal': raw_date_str, 
@@ -142,11 +142,11 @@ class GeneralNewsScraper:
             'url': url
         }
 
-# ==========================================
-# BLOK TESTING KHUSUS SALMAN (Terminal Only)
-# ==========================================
+# =============================
+# BLOK TESTING  (Terminal Only)
+# =============================
 if __name__ == "__main__":
-    # Ubah jadi headless=False kalau Salman mau lihat wujud browsernya
+    # Ubah jadi headless=False kalau mau lihat pop up browsernya
     scraper = GeneralNewsScraper(headless=True) 
     scraper.start_engine()
     
