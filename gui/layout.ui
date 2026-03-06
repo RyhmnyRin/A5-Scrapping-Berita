@@ -317,7 +317,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>770</y>
+    <y>290</y>
       <width>221</width>
       <height>71</height>
      </rect>
@@ -385,9 +385,9 @@ QPushButton:hover {
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>290</y>
+    <y>370</y>
       <width>531</width>
-      <height>471</height>
+    <height>391</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -408,7 +408,7 @@ QPushButton:hover {
        <x>10</x>
        <y>30</y>
        <width>511</width>
-       <height>441</height>
+         <height>351</height>
       </rect>
      </property>
      <property name="minimumSize">
