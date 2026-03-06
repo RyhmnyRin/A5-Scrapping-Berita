@@ -31,8 +31,8 @@ class MainWindow(QMainWindow):
         self.btnScrape.clicked.connect(self.start_scraping)
         self.btnExportCSV.clicked.connect(self.export_csv)
 
-        self.tableWidget.setColumnCount(3)
-        self.tableWidget.setHorizontalHeaderLabels(["Judul Berita", "Tanggal", "Isi Berita"])
+        self.tableWidget.setColumnCount(4)
+        self.tableWidget.setHorizontalHeaderLabels(["Judul Berita", "Tanggal", "Isi Berita", "URL"])
         self.progressBar.setValue(0)
         self.progressBar.setMaximum(100)
         self.logBox.setReadOnly(True)
@@ -92,6 +92,7 @@ class MainWindow(QMainWindow):
         self.tableWidget.setItem(row, 0, QTableWidgetItem(article.get("judul", "")))
         self.tableWidget.setItem(row, 1, QTableWidgetItem(article.get("tanggal", "")))
         self.tableWidget.setItem(row, 2, QTableWidgetItem(article.get("isi", "")))
+        self.tableWidget.setItem(row, 3, QTableWidgetItem(article.get("url", "")))
 
     def on_progress(self, current, total):
         if total > 0:

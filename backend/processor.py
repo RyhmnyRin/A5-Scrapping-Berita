@@ -111,7 +111,7 @@ class ScraperProcessor(QThread):
                         "judul"   : data_mentah['judul'],
                         "tanggal" : tanggal_bersih or "",
                         "isi"     : data_mentah['isi'],
-                        "url"     : data_mentah['url']
+                        "url"     : data_mentah.get('url') or link
                     }
 
                     self.data_found.emit(data_bersih)

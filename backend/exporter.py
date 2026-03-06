@@ -5,6 +5,15 @@ import os
 
 class DataExporter:
     @staticmethod
+    def _clean_text(value):
+        """Ubah nilai jadi string satu baris agar sel CSV lebih rapi di Excel."""
+        if value is None:
+            return ""
+
+        text = str(value)
+        return " ".join(text.replace("\r", " ").replace("\n", " ").split())
+
+    @staticmethod
     def export_to_csv(data_list, filename="hasil_scraping.csv"):
         """
         Fungsi untuk menyimpan list of dictionaries ke dalam file CSV.
@@ -28,18 +37,19 @@ class DataExporter:
                     continue
 
                 normalized_rows.append({
-                    "judul": item.get("judul", ""),
-                    "tanggal": item.get("tanggal", ""),
-                    "isi": item.get("isi", ""),
-                    "url": item.get("url", "")
+                    "judul": DataExporter._clean_text(item.get("judul", "")),
+                    "tanggal": DataExporter._clean_text(item.get("tanggal", "")),
+                    "isi": DataExporter._clean_text(item.get("isi", "")),
+                    "url": DataExporter._clean_text(item.get("url", ""))
                 })
 
             if not normalized_rows:
                 return False, "Tidak ada data valid untuk diekspor."
 
             # Membuka/membuat file CSV baru
-            with open(filename, mode='w', newline='', encoding='utf-8') as csv_file:
-                writer = csv.DictWriter(csv_file, fieldnames=expected_headers)
+            with open(filename, mode='w', newline='', encoding='utf-8-sig') as csv_file:
+                # Delimiter ';' lebih kompatibel untuk Excel dengan regional Indonesia.
+                writer = csv.DictWriter(csv_file, fieldnames=expected_headers, delimiter=';')
                 
                 # Tulis baris pertama (Judul Kolom)
                 writer.writeheader()
