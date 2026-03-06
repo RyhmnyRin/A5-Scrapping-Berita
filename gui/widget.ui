@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>960</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Scraping Berita</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayoutRoot">
+    <item>
+     <widget class="QLabel" name="judulAplikasi">
+      <property name="text">
+       <string>Scraping Berita</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBoxPengaturan">
+      <property name="title">
+       <string>Pengaturan Scraping</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayoutPengaturan">
+       <item row="0" column="0">
+        <widget class="QLabel" name="labelLink">
+         <property name="text">
+          <string>Link Berita</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="inputLink"/>
+       </item>
+       <item row="0" column="2">
+        <widget class="QPushButton" name="btnScrape">
+         <property name="text">
+          <string>Mulai Scraping</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="limitBerita">
+         <property name="text">
+          <string>Limit Berita</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QSpinBox" name="limitNews">
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>100</number>
+         </property>
+         <property name="value">
+          <number>5</number>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="startDate">
+         <property name="text">
+          <string>Start Date</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QDateEdit" name="dateEdit">
+         <property name="calendarPopup">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <widget class="QLabel" name="endDate">
+         <property name="text">
+          <string>End Date</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <widget class="QDateEdit" name="dateEdit_2">
+         <property name="calendarPopup">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0" colspan="2">
+        <widget class="QLabel" name="statusScraping">
+         <property name="text">
+          <string>Status: Menunggu scraping...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2" colspan="2">
+        <widget class="QProgressBar" name="progressBar">
+         <property name="value">
+          <number>0</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBoxHasil">
+      <property name="title">
+       <string>Hasil Scraping</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayoutHasil">
+       <item>
+        <widget class="QTableWidget" name="tableWidget">
+         <property name="columnCount">
+          <number>3</number>
+         </property>
+         <column>
+          <property name="text">
+           <string>Judul Berita</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Tanggal</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Isi Berita</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayoutBottom">
+      <item>
+       <widget class="QGroupBox" name="groupBoxExport">
+        <property name="title">
+         <string>Export Data</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayoutExport">
+         <item>
+          <widget class="QPushButton" name="btnExportCSV">
+           <property name="text">
+            <string>Export CSV</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBoxLog">
+        <property name="title">
+         <string>Log Aktivitas</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayoutLog">
+         <item>
+          <widget class="QPlainTextEdit" name="plainTextEdit"/>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar"/>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
