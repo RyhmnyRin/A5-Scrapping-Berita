@@ -13,15 +13,35 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+    background-color: #f4f6f8;
+}</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QGroupBox" name="groupBox">
+   <widget class="QGroupBox" name="pengaturanScraping">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>70</y>
-      <width>411</width>
-      <height>215</height>
+      <y>50</y>
+      <width>531</width>
+      <height>231</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+    background-color: white;
+    border: 1px solid #D0D7DE;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 5px;
+}</string>
     </property>
     <property name="title">
      <string>Pengaturan Scraping</string>
@@ -35,17 +55,25 @@
        <height>16</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">QDateEdit {
+    border: 1px solid #D0D7DE;
+    border-radius: 5px;
+    padding: 3px;
+}
+</string>
+     </property>
      <property name="text">
       <string>Filter Tanggal</string>
      </property>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>12</x>
        <y>65</y>
-       <width>133</width>
-       <height>26</height>
+       <width>172</width>
+       <height>34</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -58,6 +86,13 @@
       </item>
       <item>
        <widget class="QSpinBox" name="limitNews">
+        <property name="styleSheet">
+         <string notr="true">QSpinBox {
+    border: 1px solid #D0D7DE;
+    border-radius: 5px;
+    padding: 3px;
+}</string>
+        </property>
         <property name="minimum">
          <number>1</number>
         </property>
@@ -71,13 +106,13 @@
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>12</x>
        <y>154</y>
-       <width>174</width>
-       <height>49</height>
+       <width>215</width>
+       <height>73</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -96,6 +131,17 @@
           <height>16777215</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QProgressBar {
+    border: 1px solid #D0D7DE;
+    border-radius: 5px;
+    text-align: center;
+}
+
+QProgressBar::chunk {
+    background-color: #3498DB;
+}</string>
+        </property>
         <property name="value">
          <number>24</number>
         </property>
@@ -103,18 +149,18 @@
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>12</x>
        <y>28</y>
        <width>391</width>
-       <height>30</height>
+       <height>36</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="textLinkBerita">
         <property name="text">
          <string>Link Berita:</string>
         </property>
@@ -123,12 +169,34 @@
       <item>
        <layout class="QVBoxLayout" name="verticalLayout" stretch="0">
         <item>
-         <widget class="QLineEdit" name="inputLink"/>
+         <widget class="QLineEdit" name="inputLink">
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+    border: 1px solid #D0D7DE;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #FFFFFF;
+}</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
       <item>
        <widget class="QPushButton" name="btnScrape">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #3498DB;
+    color: white;
+    border-radius: 6px;
+    padding: 6px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #2980B9;
+}</string>
+        </property>
         <property name="text">
          <string>Mulai Scraping </string>
         </property>
@@ -136,25 +204,32 @@
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>12</x>
        <y>121</y>
-       <width>316</width>
-       <height>26</height>
+       <width>416</width>
+       <height>34</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_4">
       <item>
        <widget class="QLabel" name="startDate">
+        <property name="styleSheet">
+         <string notr="true">QDateEdit {
+    border: 1px solid #D0D7DE;
+    border-radius: 5px;
+    padding: 3px;
+}</string>
+        </property>
         <property name="text">
          <string>Start Date</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QDateEdit" name="dateEdit">
+       <widget class="QDateEdit" name="StarDateEdit">
         <property name="calendarPopup">
          <bool>true</bool>
         </property>
@@ -162,18 +237,25 @@
       </item>
       <item>
        <widget class="QLabel" name="endDate">
+        <property name="styleSheet">
+         <string notr="true">QDateEdit {
+    border: 1px solid #D0D7DE;
+    border-radius: 5px;
+    padding: 3px;
+}</string>
+        </property>
         <property name="text">
          <string>End Date</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QDateEdit" name="dateEdit_2"/>
+       <widget class="QDateEdit" name="EndDateEdit"/>
       </item>
      </layout>
     </widget>
    </widget>
-   <widget class="QGroupBox" name="groupBox_3">
+   <widget class="QGroupBox" name="logAktivitas">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -182,12 +264,27 @@
       <height>331</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+    border: 2px solid #dfe6e9;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-weight: bold;
+    background-color: #ffffff;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 6px;
+}</string>
+    </property>
     <property name="title">
      <string>Log Aktivitas</string>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_3">
      <item>
-      <widget class="QPlainTextEdit" name="plainTextEdit">
+      <widget class="QPlainTextEdit" name="logBox">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
          <horstretch>0</horstretch>
@@ -200,18 +297,51 @@
          <height>130</height>
         </size>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QTextEdit {
+    background-color: #1e1e1e;
+    color: #00ff9c;
+    border-radius: 6px;
+    padding: 6px;
+    font-family: Consolas;
+}</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
     </layout>
    </widget>
-   <widget class="QGroupBox" name="groupBox_4">
+   <widget class="QGroupBox" name="exportData">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>770</y>
-      <width>117</width>
-      <height>68</height>
+      <width>221</width>
+      <height>71</height>
      </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+    border: 2px solid #dfe6e9;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-weight: bold;
+    background-color: #ffffff;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 6px;
+}</string>
     </property>
     <property name="title">
      <string>Export Data</string>
@@ -219,11 +349,30 @@
     <layout class="QVBoxLayout" name="verticalLayout_6">
      <item>
       <widget class="QPushButton" name="btnExportCSV">
+       <property name="minimumSize">
+        <size>
+         <width>200</width>
+         <height>35</height>
+        </size>
+       </property>
        <property name="maximumSize">
         <size>
          <width>100</width>
          <height>16777215</height>
         </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background-color: #2ecc71;
+    color: white;
+    border-radius: 6px;
+    padding: 6px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #27ae60;
+}</string>
        </property>
        <property name="text">
         <string>Export CSV</string>
@@ -232,7 +381,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QGroupBox" name="groupBox_2">
+   <widget class="QGroupBox" name="hasilScraping">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -240,6 +389,15 @@
       <width>531</width>
       <height>471</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+    background-color: white;
+    border: 1px solid #D0D7DE;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-weight: bold;
+}</string>
     </property>
     <property name="title">
      <string>Hasil Scraping</string>
@@ -258,6 +416,19 @@
        <width>500</width>
        <height>270</height>
       </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTableWidget {
+    background-color: white;
+    border: 1px solid #D0D7DE;
+    gridline-color: #E6E6E6;
+}
+
+QHeaderView::section {
+    background-color: #3498DB;
+    color: white;
+    font-weight: bold;
+}</string>
      </property>
      <property name="alternatingRowColors">
       <bool>true</bool>
@@ -289,9 +460,9 @@
     <property name="geometry">
      <rect>
       <x>2</x>
-      <y>17</y>
+      <y>7</y>
       <width>571</width>
-      <height>31</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -303,10 +474,13 @@
     <property name="font">
      <font>
       <family>Arial</family>
-      <pointsize>18</pointsize>
+      <pointsize>20</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: #2C3E50;</string>
     </property>
     <property name="text">
      <string>Scraping Berita </string>
