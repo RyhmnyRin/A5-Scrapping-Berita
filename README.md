@@ -66,15 +66,15 @@ Beberapa teknologi yang digunakan dalam pembuatan aplikasi ini antara lain:
 Struktur folder dalam project ini adalah sebagai berikut:
 
 project-scraping/
-├── main.py
+├── main.py          
 ├── gui/
-│ ├── layout.ui
-│ └── widgets.py
+│   ├── layout.ui    
+│   └── widgets.py  
 └── backend/
-├── scraper.py
-├── processor.py
-└── exporter.py
-
+    ├── scraper.py   
+    ├── processor.py 
+    └── exporter.py  
+    
 Penjelasan struktur project:
 - **main.py**  
   File utama yang digunakan untuk menjalankan aplikasi.
