@@ -110,7 +110,7 @@ Tugas:
   
 ### Web Scraper
 - Muhammad Salman Al Farisi
-- Muhammad Rafi Al Bani
+- Muhammad Rafi Al Rabbani
   
 Tugas:
 - Mengembangkan sistem scraping menggunakan Selenium
