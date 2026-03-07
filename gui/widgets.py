@@ -6,9 +6,11 @@ from PyQt5 import uic
 from PyQt5.QtCore import QDate
 from PyQt5.QtWidgets import (
     QApplication,
+    QFrame,
     QFileDialog,
     QMainWindow,
     QMessageBox,
+    QScrollArea,
     QTableWidgetItem,
 )
 
@@ -22,6 +24,9 @@ class MainWindow(QMainWindow):
         base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         ui_path = os.path.join(base_dir, "gui", "layout.ui")
         uic.loadUi(ui_path, self)
+
+        # Allow scrolling when window height is smaller than UI content.
+        self._enable_vertical_scroll()
 
         self.scraped_data = []
         self.processor = None
@@ -37,6 +42,22 @@ class MainWindow(QMainWindow):
         self.progressBar.setMaximum(100)
         self.logBox.setReadOnly(True)
         self.statusScraping.setText("Status: Menunggu scraping...")
+
+    def _enable_vertical_scroll(self):
+        content_widget = self.takeCentralWidget()
+        if content_widget is None:
+            return
+
+        # layout.ui uses absolute geometry, so infer the full content size
+        # from children bounds to make scrollbars appear reliably.
+        content_rect = content_widget.childrenRect()
+        content_widget.setMinimumSize(content_rect.right() + 20, content_rect.bottom() + 20)
+
+        scroll_area = QScrollArea(self)
+        scroll_area.setWidgetResizable(False)
+        scroll_area.setFrameShape(QFrame.NoFrame)
+        scroll_area.setWidget(content_widget)
+        self.setCentralWidget(scroll_area)
 
     def _set_default_date_range(self):
         today = QDate.currentDate()
