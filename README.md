@@ -53,6 +53,13 @@ Bagian ini menyediakan tombol untuk mengekspor hasil scraping ke file CSV.
 ### 4. Log Aktivitas
 Bagian ini menampilkan aktivitas program selama proses scraping berlangsung, sehingga pengguna dapat mengetahui status yang sedang berjalan.
 
+## Preview Tampilan
+
+## Tampilan aplikasi sebelum melakukan scraping 
+![Sebelum Scraping](screenshots/sebelumScraping.jpeg)
+## Tampilan aplikasi sesudah melakukan scraping
+![Sesudah Scraping](screenshots/sesudahScraping.jpeg)
+
 ## Teknologi yang Digunakan
 Beberapa teknologi yang digunakan dalam pembuatan aplikasi ini antara lain:
 
@@ -66,19 +73,28 @@ Beberapa teknologi yang digunakan dalam pembuatan aplikasi ini antara lain:
 Struktur folder dalam project ini adalah sebagai berikut:
 
 project-scraping/
-├── main.py          
+├── main.py
+├── README.md
+├── screenshots/
+│   └── screenshots.txt
 ├── gui/
-│   ├── layout.ui    
-│   └── widgets.py  
+│   ├── layout.ui
+│   └── widgets.py
 └── backend/
-    ├── scraper.py   
-    ├── processor.py 
-    └── exporter.py  
+    ├── scraper.py
+    ├── processor.py
+    └── exporter.py
     
 Penjelasan struktur project:
 - **main.py**  
   File utama yang digunakan untuk menjalankan aplikasi.
+  
+- **README.md**  
+  File dokumentasi utama project yang berisi penjelasan tentang aplikasi, fitur, cara instalasi, cara menjalankan program, serta preview tampilan aplikasi.
 
+- **Screenshots.txt**
+  File yang berisi daftar atau referensi screenshot tampilan aplikasi.
+  
 - **layout.ui**  
   File desain tampilan GUI yang dibuat menggunakan Qt Designer.
 
